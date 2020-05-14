@@ -163,7 +163,7 @@ class Reader:
 
     def is_starved(self):
         conns = self._connections.values()
-        return any(conn.is_starved() for conn in conns)
+        return any(conn.is_starved(self._rdy_control.rdy_count) for conn in conns)
 
     async def _redistribute(self):
         while self._is_subscribe:

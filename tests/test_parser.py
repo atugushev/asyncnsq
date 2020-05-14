@@ -1,6 +1,6 @@
 import unittest
-from asyncnsq.exceptions import ProtocolError
-from asyncnsq.protocol import Reader
+from asyncnsq.tcp.exceptions import ProtocolError
+from asyncnsq.tcp.protocol import Reader
 
 
 class ParserTest(unittest.TestCase):

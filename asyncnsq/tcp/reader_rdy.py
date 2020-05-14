@@ -93,4 +93,9 @@ class RdyControl:
 
         rdy_state = max(1, self._max_in_flight /
                         max(1, len(self._connections)))
+        self._total_ready_count = int(rdy_state)
         await conn.execute(RDY, int(rdy_state))
+
+    @property
+    def rdy_count(self):
+        return self._total_ready_count

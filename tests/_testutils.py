@@ -1,5 +1,6 @@
 import asyncio
 import unittest
+import os
 from functools import wraps
 
 
@@ -14,14 +15,17 @@ def run_until_complete(fun):
         return ret
     return wrapper
 
-
 class BaseTest(unittest.TestCase):
     """Base test case for unittests.
     """
 
     def setUp(self):
-        asyncio.set_event_loop(None)
+        self.host = '127.0.0.1'
+        self.port = 4150
+        self.nsqlookupd_host = '127.0.0.1'
+        self.nsqlookupd_port = 4161
         self.loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(self.loop)
 
     def tearDown(self):
         self.loop.close()

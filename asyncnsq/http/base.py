@@ -34,6 +34,9 @@ class NsqHTTPConnection:
                                                data=_body)
         except Exception as tmp:
             print('exception', tmp)
+            # FIXME how it should be handled?
+            raise
+
         resp_body = await resp.text()
         try:
             response = json.loads(resp_body)

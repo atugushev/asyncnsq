@@ -266,4 +266,11 @@ class TcpConnection:
         self._is_upgrading = False
 
     def __repr__(self):
-        return '<NsqConnection: {}:{}'.format(self._host, self._port)
+        return '<TcpConnection: {}:{}>'.format(self._host, self._port)
+
+    def is_starved(self, rdy_count):
+        if self._queue.qsize():
+            starved = False
+        else:
+            starved = (self.in_flight > 0 and self.in_flight >= (rdy_count * 0.85))
+        return starved
