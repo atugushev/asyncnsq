@@ -1,6 +1,7 @@
 # asyncnsq
 [![Downloads](https://pepy.tech/badge/asyncnsq)](https://pepy.tech/project/asyncnsq)
 [![PyPI version](https://badge.fury.io/py/asyncnsq.svg)](https://badge.fury.io/py/asyncnsq)
+[![Coverage](https://codecov.io/gh/aohan237/asyncnsq/branch/master/graph/badge.svg)](https://codecov.io/gh/aohan237/asyncnsq)
 
 ## async nsq with python3.6 await/async supported
 
